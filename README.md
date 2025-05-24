@@ -52,8 +52,12 @@ Before building or running this project, ensure you have the following dependenc
 - [CMake](https://cmake.org/documentation/) (3.30 or higher)
 - [Ninja](https://ninja-build.org/) (if you're not building for Visual Studio)
 
+##### For Linux
+
+> Info: Make sure to check out the [raylib wiki](https://github.com/raysan5/raylib/wiki/Working-on-GNU-Linux) to make sure you have all necessary dependencies installed on your machine. 
+
 ## For Web
-- [Emscripten](https://emscripten.org/docs/getting_started/downloads.html) (Only if you are building for Web)
+- [Emscripten](https://emscripten.org/docs/getting_started/downloads.html)
 - [CMake](https://cmake.org/documentation/) (3.30 or higher)
 
 ## Building the Project (For Desktop)

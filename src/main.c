@@ -10,6 +10,10 @@
 	#include <emscripten/emscripten.h>
 #endif
 
+#ifdef _MSC_VER
+    #pragma comment(linker, "/SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup")
+#endif
+
 #define RAYGUI_IMPLEMENTATION
 #include <raygui.h>
 

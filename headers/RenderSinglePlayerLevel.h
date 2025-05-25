@@ -21,7 +21,7 @@ void InitSinglePlayerLevel(void)
 	S_collide = false;
 	S_nextAction = 0;
 
-	GuiLoadStyle("./../res/style_dark.rgs");
+	GuiLoadStyle("./res/style_dark.rgs");
 	GuiSetStyle(BUTTON, TEXT_SIZE, 16);
 
 	initSinglePlayerLevel = false;

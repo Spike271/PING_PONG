@@ -42,11 +42,12 @@ Menu menu;
 
 void SetIcon(void)
 {
-	Image img = LoadImage("../res/logo.png");
-	if (img.data == NULL) CloseWindow();
-
-	SetWindowIcon(img);
-	UnloadImage(img);
+	Image img = LoadImage("./res/logo.png");
+	if (img.data != NULL)
+	{
+		SetWindowIcon(img);
+		UnloadImage(img);
+	}
 }
 
 void GetScoreFromFile(void)

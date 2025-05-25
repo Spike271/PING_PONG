@@ -21,7 +21,7 @@ void InitMultiPlayerLevel(void)
 	M_nextAction = 0;
 	M_gameOver = false;
 
-	GuiLoadStyle("./../res/style_dark.rgs");
+	GuiLoadStyle("./res/style_dark.rgs");
 	GuiSetStyle(DEFAULT, TEXT_SIZE, 16);
 
 	M_lastFrameTime = GetTime();

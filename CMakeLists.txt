@@ -4,13 +4,6 @@ project(PING_PONG LANGUAGES C VERSION 1.0)
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-if (UNIX AND NOT APPLE)
-    find_package(X11 REQUIRED)
-
-    # Uncomment if using Wayland
-    # find_package(Wayland REQUIRED)
-endif ()
-
 # Dependencies
 set(RAYLIB_VERSION 5.5)
 find_package(raylib ${RAYLIB_VERSION} QUIET) # QUIET or REQUIRED
@@ -73,7 +66,7 @@ set(DEST_DIR "${CMAKE_BINARY_DIR}")
 file(COPY ${SOURCE_DIR} DESTINATION ${DEST_DIR})
 
 if (${PLATFORM} STREQUAL "Web")
-    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Os -Wall -s USE_GLFW=3 -s ASSERTIONS=1 -s WASM=1 -s GL_ENABLE_GET_PROC_ADDRESS=1 -s FORCE_FILESYSTEM=1 -s INITIAL_MEMORY=314572800 -s TOTAL_MEMORY=536870912 --preload-file ../res/")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Os -Wall -s USE_GLFW=3 -s ASSERTIONS=1 -s WASM=1 -s GL_ENABLE_GET_PROC_ADDRESS=1 -s FORCE_FILESYSTEM=1 -s INITIAL_MEMORY=314572800 -s TOTAL_MEMORY=536870912 --preload-file ./res/")
     set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".html") # Tell Emscripten to build an {project_name}.html file.
 endif ()
 

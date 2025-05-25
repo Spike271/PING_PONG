@@ -27,9 +27,9 @@ int main()
 	SetExitKey(0);
 	menu = MAINMENU;
 
-	customFont = LoadFontEx("../res/Roboto-Medium.ttf", 64, 0, 0);
+	customFont = LoadFontEx("./res/Roboto-Medium.ttf", 64, 0, 0);
 	SetTextureFilter(customFont.texture, TEXTURE_FILTER_BILINEAR);
-	texture = LoadTexture("../res/bg.jpg");
+	texture = LoadTexture("./res/bg.jpg");
 
 #if defined(PLATFORM_WEB)
 	S_DefaultScore = 3;
@@ -59,29 +59,32 @@ void UpdateDrawFrame(void)
 
 	switch (menu)
 	{
-		case MAINMENU: RenderMainMenu();
+	case MAINMENU:
+		RenderMainMenu();
 		break;
 
-		case SINGLEPLAYERMODE:
-			if (initSinglePlayerLevel) InitSinglePlayerLevel();
-			RenderSinglePlayerLevel();
+	case SINGLEPLAYERMODE:
+		if (initSinglePlayerLevel) InitSinglePlayerLevel();
+		RenderSinglePlayerLevel();
 		break;
 
-		case MULTIPLAYERMODE:
-			if (initMultiPlayerLevel) InitMultiPlayerLevel();
-			RenderMultiPlayerLevel();
+	case MULTIPLAYERMODE:
+		if (initMultiPlayerLevel) InitMultiPlayerLevel();
+		RenderMultiPlayerLevel();
 		break;
 
-		case ABOUTSECTION: RenderAboutSection();
+	case ABOUTSECTION:
+		RenderAboutSection();
 		break;
 
-		case EXIT: exitButtonPressed = true;
+	case EXIT:
+		exitButtonPressed = true;
 		break;
 
-		default : break;
+	default: break;
 	}
 
-    EndDrawing();
+	EndDrawing();
 }
 
 void RenderMainMenu()

@@ -1,4 +1,12 @@
+<div align="center">
+
+<img src="res/logo.png" alt="Ping Pong" title="Ping Pong" width="15%">
+
 # Ping Pong Game
+
+[![Building](https://github.com/Spike271/PING_PONG/actions/workflows/Build%20for%20all%20platforms.yml/badge.svg)](https://github.com/Spike271/PING_PONG/actions/workflows/Build%20for%20all%20platforms.yml)
+
+</div>
 
 ## About the Project
 
@@ -8,8 +16,9 @@ score needed to win the game.
 
 ## Screenshot
 
-![MainMenu](./ResForGit/MainMenu.png)
-![GamePlay](./ResForGit/GamePlay.gif)
+<img src="ResForGit/MainMenu.png" alt="Main Menu" width="79%">
+
+<img src="ResForGit/GamePlay.gif" alt="Game Play Gif">
 
 ## Features
 

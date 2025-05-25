@@ -16,7 +16,7 @@ score needed to win the game.
 
 ## Screenshot
 
-<img src="ResForGit/MainMenu.png" alt="Main Menu" width="79%">
+<img src="ResForGit/MainMenu.png" alt="Main Menu" width="96%">
 
 <img src="ResForGit/GamePlay.gif" alt="Game Play Gif">
 

@@ -4,7 +4,7 @@
 
 # Ping Pong Game
 
-[![Building](https://github.com/Spike271/PING_PONG/actions/workflows/Build%20for%20all%20platforms.yml/badge.svg)](https://github.com/Spike271/PING_PONG/actions/workflows/Build%20for%20all%20platforms.yml)
+[![Building](https://github.com/Spike271/PING_PONG/actions/workflows/Build%20for%20all%20platforms.yml/badge.svg)](https://github.com/Spike271/PING_PONG/actions/workflows/Build%20for%20all%20platforms.yml)  [![Deploy on Web](https://github.com/Spike271/PING_PONG/actions/workflows/deploy.yml/badge.svg)](https://github.com/Spike271/PING_PONG/actions/workflows/deploy.yml)
 
 </div>
 

@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="res/logo.png" alt="Ping Pong" title="Ping Pong" width="15%">
+<img src="Git-Resources/logo.png" alt="Ping Pong" title="Ping Pong" width="15%">
 
 # Ping Pong Game
 
@@ -16,9 +16,9 @@ score needed to win the game.
 
 ## Screenshot
 
-<img src="ResForGit/MainMenu.png" alt="Main Menu" width="96%">
+<img src="Git-Resources/MainMenu.png" alt="Main Menu" width="100%">
 
-<img src="ResForGit/GamePlay.gif" alt="Game Play Gif">
+<img src="Git-Resources/GamePlay.gif" alt="Game Play Gif" width="100%">
 
 ## Features
 

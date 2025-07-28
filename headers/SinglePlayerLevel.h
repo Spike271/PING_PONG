@@ -6,19 +6,16 @@
 #include "Global.h"
 
 double S_lastFrameTime;
-bool S_gameOver, S_collide;
+bool S_gameOver, S_collide, isRunning;
 int S_nextAction;
 
 void DestructSinglePlayerLevel(void);
 
 void InitSinglePlayerLevel(void)
 {
-#ifndef PLATFORM_WEB
-	SetTargetFPS(GetMonitorRefreshRate(0));
-#endif
-
 	S_gameOver = false;
 	S_collide = false;
+	isRunning = true;
 	S_nextAction = 0;
 
 	GuiLoadStyle("./res/style_dark.rgs");
@@ -32,14 +29,22 @@ void RenderSinglePlayerLevel(void)
 {
 	if (IsKeyPressed(KEY_ESCAPE)) menu = MAINMENU;
 
-	double currentFrameTime = GetTime();
-	double deltaTime = currentFrameTime - S_lastFrameTime;
+	const double currentFrameTime = GetTime();
+	const double deltaTime = currentFrameTime - S_lastFrameTime;
 	S_lastFrameTime = currentFrameTime;
 
-	if (!S_gameOver) MovePeddles(&leftPeddle, true, false, deltaTime);
-	if (!S_gameOver) MoveAiPeddles(&ball, &rightPeddle, deltaTime, &S_collide);
+	if (!S_gameOver && isRunning) MovePeddles(&leftPeddle, true, false, deltaTime);
+	if (!S_gameOver && isRunning) MoveAiPeddles(&ball, &rightPeddle, deltaTime, &S_collide);
 
 	ClearBackground(BLUE);
+	if (isRunning == true)
+	{
+		if (GuiLabelButton((Rectangle){15, 20, 10, 10}, "#132#")) isRunning = false;
+	}
+	else
+	{
+		if (GuiLabelButton((Rectangle){15, 20, 10, 10}, "#131#")) isRunning = true;
+	}
 
 	DrawLine(screenWidth / 2, 0, screenWidth / 2, screenHeight, WHITE);
 	DrawCircle(screenWidth / 2, screenHeight / 2, 100, (Color){67, 152, 232, 255});
@@ -55,7 +60,7 @@ void RenderSinglePlayerLevel(void)
 	DrawRectangle(rightPeddle.coordinate.x, rightPeddle.coordinate.y, rightPeddle.width, rightPeddle.height, rightPeddle.color);
 
 	DrawCircle(ball.coordinates.x, ball.coordinates.y, ball.radius, ball.color);
-	if (!S_gameOver) MoveBall(&ball, deltaTime);
+	if (!S_gameOver && isRunning) MoveBall(&ball, deltaTime);
 	CheckCollisionForSinglePlayer(deltaTime, &S_collide);
 
 	if (humanScore >= S_DefaultScore)
@@ -92,8 +97,4 @@ void DestructSinglePlayerLevel(void)
 {
 	GuiLoadStyleDefault();
 	S_ResetMovingComponents();
-
-#ifndef PLATFORM_WEB
-	SetTargetFPS(60);
-#endif
 }

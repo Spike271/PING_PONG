@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="Git-Resources/logo.png" alt="Ping Pong" title="Ping Pong" width="15%">
+<img src="GitVisuals/logo.png" alt="Ping Pong" title="Ping Pong" width="15%">
 
 # Ping Pong Game
 
@@ -16,9 +16,9 @@ score needed to win the game.
 
 ## Screenshot
 
-<img src="Git-Resources/MainMenu.png" alt="Main Menu" width="100%">
+<img src="GitVisuals/MainMenu.png" alt="Main Menu" width="1125">
 
-<img src="Git-Resources/GamePlay.gif" alt="Game Play Gif" width="100%">
+<img src="GitVisuals/GamePlay.gif" alt="Game Play Gif" width="800">
 
 ## Features
 
@@ -114,7 +114,6 @@ git clone https://github.com/Spike271/Ping_Pong.git
 
 1. Ensure you have [Emscripten](https://emscripten.org/docs/getting_started/downloads.html) installed and activated in
    your environment.
-
 
 2. Create and navigate to the build-web directory:
    ```bash

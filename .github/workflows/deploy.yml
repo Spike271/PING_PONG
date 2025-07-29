@@ -2,8 +2,8 @@ name: Deploy on Web
 
 on:
   push:
-    branches: [ "main" ]
-    
+    branches: [ "main", "feature-branch" ]
+
 jobs:
   deploy:
     runs-on: ubuntu-latest

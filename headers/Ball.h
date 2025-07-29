@@ -18,38 +18,34 @@ int GetRandomDirection(void)
     return GetRandomValue(0, 1);
 }
 
-Ball InitBall(Vector2 coordinate, float r, Color col, int speed)
+Ball InitBall(const Vector2 coordinate, const float r, const Color col, const int speed)
 {
     Ball ball = {{coordinate.x, coordinate.y}, r, col, speed};
 
-    int randomXDirection = GetRandomDirection();
+    const int randomXDirection = GetRandomDirection();
     ball.velocity.x = (randomXDirection == 0 ? -1 : 1) * ball.initialSpeed;
 
-    int randomYDirection = GetRandomDirection();
+    const int randomYDirection = GetRandomDirection();
     ball.velocity.y = (randomYDirection == 0 ? -1 : 1) * ball.initialSpeed;
 
     return ball;
 }
 
-void SpeedIncrease(Ball *ball, bool xy, float deltaTime)
+void SpeedIncrease(Ball *ball, const bool xy, const float deltaTime)
 {
-    if (xy)
+    if (xy == true)
     {
         ball->velocity.x = fabsf(ball->velocity.x);
-
-        if (ball->velocity.x < 600)
-            ball->velocity.x += 5000.0 * deltaTime;
+        if (ball->velocity.x < 600) ball->velocity.x += 5000.0 * deltaTime;
     }
     else
     {
         ball->velocity.y = fabsf(ball->velocity.y);
-
-        if (ball->velocity.y < 600)
-            ball->velocity.y += 5000.0 * deltaTime;
+        if (ball->velocity.y < 600) ball->velocity.y += 5000.0 * deltaTime;
     }
 }
 
-void MoveBall(Ball *ball, double deltaTime)
+void MoveBall(Ball *ball, const double deltaTime)
 {
     ball->coordinates.x += ball->velocity.x * deltaTime;
     ball->coordinates.y += ball->velocity.y * deltaTime;

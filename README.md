@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="Git-Resources/logo.png" alt="Ping Pong" title="Ping Pong" width="15%">
+<img src="GitVisuals/logo.png" alt="Ping Pong" title="Ping Pong" width="15%">
 
 # Ping Pong Game
 
@@ -10,15 +10,15 @@
 
 ## About the Project
 
-This is a simple Ping Pong game made in **C** using the **raylib** library. The game supports both single-player and
+This is a simple Ping-Pong game made in **C** using the **raylib** library. The game supports both single-player and
 multiplayer modes. It is designed to provide a classic Pong experience with customizable gameplay elements, such as the
 score needed to win the game.
 
 ## Screenshot
 
-<img src="Git-Resources/MainMenu.png" alt="Main Menu" width="100%">
+<img src="GitVisuals/MainMenu.png" alt="Main Menu" width="95%">
 
-<img src="Git-Resources/GamePlay.gif" alt="Game Play Gif" width="100%">
+<img src="GitVisuals/GamePlay.gif" alt="Game Play Gif" width="95%">
 
 ## Features
 
@@ -28,8 +28,8 @@ score needed to win the game.
 - **Multiplayer Mode**: Play locally with a friend.
 	- Left player controls the left paddle (`W`/`S` keys).
 	- Right player controls the right paddle (`Up`/`Down` arrow keys).
+- **Options Section**: You can customize the winning score by going into this section.
 - **About Section**: Learn more about the game through the in-game "About" section.
-- You can customize the winning score by modifying the `score.txt` file.(This file will be created after launching the executable. The changes will take affect after the game is restarted.)
 
 ## Technologies Used
 
@@ -43,6 +43,7 @@ score needed to win the game.
 2. Use the menu to select the desired mode:
 	- Single Player
 	- Multiplayer
+	- Options
 	- About
 	- Exit
 3. Gameplay:
@@ -114,7 +115,6 @@ git clone https://github.com/Spike271/Ping_Pong.git
 
 1. Ensure you have [Emscripten](https://emscripten.org/docs/getting_started/downloads.html) installed and activated in
    your environment.
-
 
 2. Create and navigate to the build-web directory:
    ```bash

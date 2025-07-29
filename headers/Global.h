@@ -9,12 +9,13 @@
 const int screenWidth = 1125;
 const int screenHeight = 750;
 
-unsigned int S_DefaultScore;
-unsigned int M_DefaultScore;
+int S_DefaultScore;
+int M_DefaultScore;
 
 bool exitButtonPressed = false;
 bool initSinglePlayerLevel = false;
 bool initMultiPlayerLevel = false;
+bool initOptions = false;
 
 unsigned int humanScore = 0;
 unsigned int aiScore = 0;
@@ -34,6 +35,7 @@ typedef enum
 	MAINMENU = 0,
 	SINGLEPLAYERMODE,
 	MULTIPLAYERMODE,
+	OPTIONS,
 	ABOUTSECTION,
 	EXIT
 } Menu;
@@ -42,7 +44,7 @@ Menu menu;
 
 void SetIcon(void)
 {
-	Image img = LoadImage("./res/logo.png");
+	const Image img = LoadImage("./res/logo.png");
 	if (img.data != NULL)
 	{
 		SetWindowIcon(img);
@@ -99,4 +101,15 @@ void GetScoreFromFile(void)
 		}
 	}
 	if (fp) fclose(fp);
+}
+
+void ModifyScoreFile(void)
+{
+	const char* filename = "./score.txt";
+	FILE* fp = fopen(filename, "w");
+	if (fp != NULL)
+	{
+		fprintf(fp, "Single Player Score = %d\n", S_DefaultScore);
+		fprintf(fp, "Multi Player Score = %d\n", M_DefaultScore);
+	}
 }

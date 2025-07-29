@@ -30,7 +30,7 @@ void M_ResetMovingComponents(void)
 	leftPlayerScore = 0, rightPlayerScore = 0;
 }
 
-void CheckCollisionForMultiPlayer(double deltaTime)
+void CheckCollisionForMultiPlayer(const double deltaTime)
 {
 	if (CheckCollisionCircleRec(ball.coordinates, ball.radius, (Rectangle){leftPeddle.coordinate.x, leftPeddle.coordinate.y, leftPeddle.width, leftPeddle.height}))
 	{
@@ -66,7 +66,7 @@ void CheckCollisionForMultiPlayer(double deltaTime)
 	}
 }
 
-void CheckCollisionForSinglePlayer(double deltaTime, bool *collide)
+void CheckCollisionForSinglePlayer(const double deltaTime, bool *collide)
 {
 	// check collision with left peddle
 	if (CheckCollisionCircleRec(ball.coordinates, ball.radius, (Rectangle){leftPeddle.coordinate.x, leftPeddle.coordinate.y, leftPeddle.width, leftPeddle.height}))

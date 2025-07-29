@@ -10,7 +10,7 @@ typedef struct Peddles
     float movementSpeed;
 } Peddles;
 
-Peddles InitPeddles(Vector2 coordinate, int w, int h, Color c)
+Peddles InitPeddles(const Vector2 coordinate, const int w, const int h, const Color c)
 {
     Peddles peddles = {coordinate, w, h, c, 450, 0.0};
     return peddles;
@@ -50,10 +50,10 @@ void MoveAiPeddles(const Ball *ball, Peddles *peddles, const double deltaTime, c
 	if ((ball->coordinates.x > GetRenderWidth() / 2 - ball->radius) && !*collide)
 	{
 		// Calculate predicted Y position where ball will intersect with a paddle
-		float timeToReach = (peddles->coordinate.x - ball->coordinates.x) / ball->velocity.x;
-		float predictedY = ball->coordinates.y + (ball->velocity.y * timeToReach);
+		const float timeToReach = (peddles->coordinate.x - ball->coordinates.x) / ball->velocity.x;
+		const float predictedY = ball->coordinates.y + (ball->velocity.y * timeToReach);
 
-		float reactionThreshold = 25.0f;
+		const float reactionThreshold = 25.0f;
 
 		// Move towards on predicted position
 		if (predictedY > peddles->coordinate.y + peddles->height / 2 + reactionThreshold)

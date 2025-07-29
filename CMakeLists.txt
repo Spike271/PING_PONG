@@ -36,9 +36,11 @@ add_executable(${PROJECT_NAME} src/main.c
         headers/Draw.h
         headers/Global.h
         headers/Rectangle.h
-        headers/RenderAboutSection.h
-        headers/RenderSinglePlayerLevel.h
-        headers/RenderMultiPlayerLevel.h
+        headers/AboutSection.h
+        headers/SinglePlayerLevel.h
+        headers/MultiPlayerLevel.h
+        headers/Options.h
+        headers/lock.h
 )
 
 if (WIN32)

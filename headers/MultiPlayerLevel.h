@@ -6,18 +6,15 @@
 #include "Global.h"
 
 int M_nextAction;
-bool M_gameOver;
+bool M_gameOver, isRunning;
 double M_lastFrameTime;
 
 void DestructMultiPlayerLevel(void);
 
 void InitMultiPlayerLevel(void)
 {
-#ifndef PLATFORM_WEB
-	SetTargetFPS(GetMonitorRefreshRate(0));
-#endif
-
 	initMultiPlayerLevel = false;
+	isRunning = true;
 	M_nextAction = 0;
 	M_gameOver = false;
 
@@ -31,14 +28,22 @@ void RenderMultiPlayerLevel(void)
 {
 	if (IsKeyPressed(KEY_ESCAPE)) menu = MAINMENU;
 
-	double currentFrameTime = GetTime();
-	double deltaTime = currentFrameTime - M_lastFrameTime;
+	const double currentFrameTime = GetTime();
+	const double deltaTime = currentFrameTime - M_lastFrameTime;
 	M_lastFrameTime = currentFrameTime;
 
-	if (!M_gameOver) MovePeddles(&leftPeddle, true, false, deltaTime);
-	if (!M_gameOver) MovePeddles(&rightPeddle, false, true, deltaTime);
+	if (!M_gameOver && isRunning) MovePeddles(&leftPeddle, true, false, deltaTime);
+	if (!M_gameOver && isRunning) MovePeddles(&rightPeddle, false, true, deltaTime);
 
 	ClearBackground(BLUE);
+	if (isRunning)
+	{
+		if (GuiLabelButton((Rectangle){15, 20, 10, 10}, "#132#")) isRunning = false;
+	}
+	else
+	{
+		if (GuiLabelButton((Rectangle){15, 20, 10, 10}, "#131#")) isRunning = true;
+	}
 
 	DrawLine(screenWidth / 2, 0, screenWidth / 2, screenHeight, WHITE);
 	DrawCircle(screenWidth / 2, screenHeight / 2, 100, (Color){67, 152, 232, 255});
@@ -54,7 +59,7 @@ void RenderMultiPlayerLevel(void)
 	DrawRectangle(rightPeddle.coordinate.x, rightPeddle.coordinate.y, rightPeddle.width, rightPeddle.height, rightPeddle.color);
 
 	DrawCircle(ball.coordinates.x, ball.coordinates.y, ball.radius, ball.color);
-	if (!M_gameOver) MoveBall(&ball, deltaTime);
+	if (!M_gameOver && isRunning) MoveBall(&ball, deltaTime);
 	CheckCollisionForMultiPlayer(deltaTime);
 
 	if (leftPlayerScore >= M_DefaultScore)
@@ -91,8 +96,4 @@ void DestructMultiPlayerLevel(void)
 {
 	GuiLoadStyleDefault();
 	M_ResetMovingComponents();
-
-#ifndef PLATFORM_WEB
-	SetTargetFPS(60);
-#endif
 }

@@ -1,10 +1,12 @@
 #include <raylib.h>
 
+#include "./../headers/lock.h"
+#include "./../headers/Options.h"
 #include "./../headers/Draw.h"
 #include "./../headers/Global.h"
-#include "./../headers/RenderAboutSection.h"
-#include "./../headers/RenderSinglePlayerLevel.h"
-#include "./../headers/RenderMultiPlayerLevel.h"
+#include "./../headers/AboutSection.h"
+#include "./../headers/SinglePlayerLevel.h"
+#include "./../headers/MultiPlayerLevel.h"
 
 #if defined(PLATFORM_WEB)
 	#include <emscripten/emscripten.h>
@@ -22,6 +24,11 @@ void RenderMainMenu(void);
 
 int main()
 {
+	if (acquire_lock() == -1)
+	{
+		fprintf(stderr, "Another instance is already running.");
+		return 1;
+	}
 	InitMovingComponents();
 	InitWindow(screenWidth, screenHeight, "Ping pong game");
 	SetExitKey(0);
@@ -37,7 +44,7 @@ int main()
 	emscripten_set_main_loop(UpdateDrawFrame, 0, 1);
 #else
 	GetScoreFromFile();
-	SetTargetFPS(60);
+	SetTargetFPS(GetMonitorRefreshRate(0));
 	SetIcon();
 
 	while (!WindowShouldClose() && !exitButtonPressed)
@@ -50,7 +57,7 @@ int main()
 	UnloadFont(customFont);
 
 	CloseWindow();
-	return 0;
+	release_lock();
 }
 
 void UpdateDrawFrame(void)
@@ -71,6 +78,11 @@ void UpdateDrawFrame(void)
 	case MULTIPLAYERMODE:
 		if (initMultiPlayerLevel) InitMultiPlayerLevel();
 		RenderMultiPlayerLevel();
+		break;
+
+	case OPTIONS:
+		if (initOptions) InitOptions();
+		RenderOptions();
 		break;
 
 	case ABOUTSECTION:
@@ -94,7 +106,7 @@ void RenderMainMenu()
 
 	GuiSetFont(customFont);
 	GuiSetStyle(DEFAULT, TEXT_SIZE, 40);
-	GuiSetStyle(DEFAULT, TEXT_COLOR_NORMAL, 0xff0000ff);
+	GuiSetStyle(DEFAULT, TEXT_COLOR_NORMAL, (int)0xff0000ff);
 	GuiLabel((Rectangle){20, 20, 550, 100}, "PING PONG GAME");
 
 	GuiSetFont(GetFontDefault());
@@ -103,9 +115,10 @@ void RenderMainMenu()
 
 	if (GuiLabelButton((Rectangle){20, 120, 100, 100}, "Single Player")) menu = SINGLEPLAYERMODE, initSinglePlayerLevel = true;
 	if (GuiLabelButton((Rectangle){20, 220, 100, 100}, "Multi Player")) menu = MULTIPLAYERMODE, initMultiPlayerLevel = true;
-	if (GuiLabelButton((Rectangle){20, 320, 100, 100}, "About")) menu = ABOUTSECTION;
+	if (GuiLabelButton((Rectangle){20, 320, 100, 100}, "Options")) menu = OPTIONS, initOptions = true;
+	if (GuiLabelButton((Rectangle){20, 420, 100, 100}, "About")) menu = ABOUTSECTION;
 
 #ifndef PLATFORM_WEB
-	if (GuiLabelButton((Rectangle){20, 420, 100, 100}, "Exit")) menu = EXIT;
+	if (GuiLabelButton((Rectangle){20, 520, 100, 100}, "Exit")) menu = EXIT;
 #endif
 }

@@ -2,7 +2,7 @@ name: Build for all platforms
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "feature-branch" ]
 
 jobs:
   build:

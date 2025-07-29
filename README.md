@@ -28,8 +28,8 @@ score needed to win the game.
 - **Multiplayer Mode**: Play locally with a friend.
 	- Left player controls the left paddle (`W`/`S` keys).
 	- Right player controls the right paddle (`Up`/`Down` arrow keys).
+- **Options Section**: You can customize the winning score by going into this section.
 - **About Section**: Learn more about the game through the in-game "About" section.
-- You can customize the winning score by modifying the `score.txt` file.(This file will be created after launching the executable. The changes will take affect after the game is restarted.)
 
 ## Technologies Used
 
@@ -43,6 +43,7 @@ score needed to win the game.
 2. Use the menu to select the desired mode:
 	- Single Player
 	- Multiplayer
+	- Options
 	- About
 	- Exit
 3. Gameplay:

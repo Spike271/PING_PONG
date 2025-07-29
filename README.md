@@ -10,15 +10,15 @@
 
 ## About the Project
 
-This is a simple Ping Pong game made in **C** using the **raylib** library. The game supports both single-player and
+This is a simple Ping-Pong game made in **C** using the **raylib** library. The game supports both single-player and
 multiplayer modes. It is designed to provide a classic Pong experience with customizable gameplay elements, such as the
 score needed to win the game.
 
 ## Screenshot
 
-<img src="GitVisuals/MainMenu.png" alt="Main Menu" width="1125">
+<img src="GitVisuals/MainMenu.png" alt="Main Menu" width="95%">
 
-<img src="GitVisuals/GamePlay.gif" alt="Game Play Gif" width="800">
+<img src="GitVisuals/GamePlay.gif" alt="Game Play Gif" width="95%">
 
 ## Features
 

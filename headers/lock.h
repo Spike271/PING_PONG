@@ -17,6 +17,7 @@
 #endif
 
 #ifdef _WIN32
+static char lock_path[MAX_PATH];
 static const char *LOCK_FILE = NULL;
 #else
 static const char *LOCK_FILE = "/tmp/myapp.lock";
@@ -31,7 +32,6 @@ int acquire_lock()
 	if (!temp_dir)
 		return -1;
 
-	char lock_path[MAX_PATH];
 	snprintf(lock_path, MAX_PATH, "%s\\myapp.lock", temp_dir);
 	LOCK_FILE = lock_path;
 

@@ -2,10 +2,6 @@ cmake_minimum_required(VERSION 3.30)
 project(PING_PONG VERSION 1.2)
 
 set(CMAKE_C_STANDARD 99)
-set(CMAKE_EXE_LINKER_FLAGS "-static")
-set(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -static-libstdc++")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static")
-
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Dependencies
@@ -50,7 +46,10 @@ set(raylib_VERBOSE 1)
 
 if (WIN32)
     set_property(TARGET ${PROJECT_NAME} APPEND PROPERTY WIN32_EXECUTABLE TRUE)
-#    target_sources(${PROJECT_NAME} PUBLIC res/app.rc)
+    
+    set(CMAKE_EXE_LINKER_FLAGS "-static")
+    set(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -static-libstdc++")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static")
 elseif(APPLE)
     set_property(TARGET ${PROJECT_NAME} APPEND PROPERTY MACOSX_BUNDLE TRUE)
 elseif (UNIX AND NOT APPLE)

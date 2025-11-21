@@ -7,26 +7,26 @@
 void InitMovingComponents(void)
 {
 	SetRandomSeed((int)time(NULL));
-	leftPeddle = InitPeddles((Vector2){0.0, screenHeight / 2 - 60}, 15, 120, WHITE);
+	leftPeddle = InitPeddles((Vector2){0.0f, screenHeight / 2 - 60}, 15, 120, WHITE);
 	rightPeddle = InitPeddles((Vector2){screenWidth - 15, screenHeight / 2 - 60}, 15, 120, WHITE);
-	ball = InitBall((Vector2){screenWidth / 2, (float)(GetRandomValue(0, screenHeight - 18))}, 18.0, YELLOW, 200);
+	ball = InitBall((Vector2){screenWidth / 2, (float)(GetRandomValue(0, screenHeight - 18))}, 18.0f, YELLOW, 200);
 }
 
 void S_ResetMovingComponents(void)
 {
 	SetRandomSeed((int)time(NULL));
-	leftPeddle = InitPeddles((Vector2){0.0, screenHeight / 2 - 60}, 15, 120, WHITE);
+	leftPeddle = InitPeddles((Vector2){0.0f, screenHeight / 2 - 60}, 15, 120, WHITE);
 	rightPeddle = InitPeddles((Vector2){screenWidth - 15, screenHeight / 2 - 60}, 15, 120, WHITE);
-	ball = InitBall((Vector2){screenWidth / 2, (float)(GetRandomValue(0, screenHeight - 18))}, 18.0, YELLOW, 200);
+	ball = InitBall((Vector2){screenWidth / 2, (float)(GetRandomValue(0, screenHeight - 18))}, 18.0f, YELLOW, 200);
 	humanScore = 0, aiScore = 0;
 }
 
 void M_ResetMovingComponents(void)
 {
 	SetRandomSeed((int)time(NULL));
-	leftPeddle = InitPeddles((Vector2){0.0, screenHeight / 2 - 60}, 15, 120, WHITE);
+	leftPeddle = InitPeddles((Vector2){0.0f, screenHeight / 2 - 60}, 15, 120, WHITE);
 	rightPeddle = InitPeddles((Vector2){screenWidth - 15, screenHeight / 2 - 60}, 15, 120, WHITE);
-	ball = InitBall((Vector2){screenWidth / 2, (float)(GetRandomValue(0, screenHeight - 18))}, 18.0, YELLOW, 200);
+	ball = InitBall((Vector2){screenWidth / 2, (float)(GetRandomValue(0, screenHeight - 18))}, 18.0f, YELLOW, 200);
 	leftPlayerScore = 0, rightPlayerScore = 0;
 }
 

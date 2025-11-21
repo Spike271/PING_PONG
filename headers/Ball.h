@@ -12,7 +12,7 @@ typedef struct Ball
     Vector2 velocity;
 } Ball;
 
-int GetRandomDirection(void)
+static int GetRandomDirection(void)
 {
     SetRandomSeed((int)time(NULL));
     return GetRandomValue(0, 1);
@@ -36,12 +36,12 @@ void SpeedIncrease(Ball *ball, const bool xy, const float deltaTime)
     if (xy == true)
     {
         ball->velocity.x = fabsf(ball->velocity.x);
-        if (ball->velocity.x < 600) ball->velocity.x += 5000.0 * deltaTime;
+        if (ball->velocity.x < 600) ball->velocity.x += 5000.0f * deltaTime;
     }
     else
     {
         ball->velocity.y = fabsf(ball->velocity.y);
-        if (ball->velocity.y < 600) ball->velocity.y += 5000.0 * deltaTime;
+        if (ball->velocity.y < 600) ball->velocity.y += 5000.0f * deltaTime;
     }
 }
 

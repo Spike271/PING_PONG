@@ -1,5 +1,4 @@
 #pragma once
-#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -64,23 +63,25 @@ void GetScoreFromFile(void)
 
 	if (fp != NULL)
 	{
-		char data[128] = {0};
+		char data[128] = {0}, *endptr;
 
 		while (fgets(data, sizeof(data), fp) != NULL)
 		{
 			if (strstr(data, "Single Player Score") != NULL)
 			{
-				char* eq_pos = strchr(data, '=');
+				const char* eq_pos = strchr(data, '=');
+
 				if (eq_pos != NULL)
-					S_DefaultScore = atoi(eq_pos + 1);
+					S_DefaultScore = strtol(eq_pos + 1, &endptr, 10);
 				else
 					fprintf(stderr, "Warning: Skipping malformed line: %s\n", data);
 			}
 			else if (strstr(data, "Multi Player Score") != NULL)
 			{
-				char* eq_pos = strchr(data, '=');
+				const char* eq_pos = strchr(data, '=');
+
 				if (eq_pos != NULL)
-					M_DefaultScore = atoi(eq_pos + 1);
+					M_DefaultScore = strtol(eq_pos + 1, &endptr, 10);
 				else
 					fprintf(stderr, "Warning: Skipping malformed line: %s\n", data);
 			}
@@ -107,6 +108,7 @@ void ModifyScoreFile(void)
 {
 	const char* filename = "./score.txt";
 	FILE* fp = fopen(filename, "w");
+
 	if (fp != NULL)
 	{
 		fprintf(fp, "Single Player Score = %d\n", S_DefaultScore);

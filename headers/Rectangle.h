@@ -12,7 +12,7 @@ typedef struct Peddles
 
 Peddles InitPeddles(const Vector2 coordinate, const int w, const int h, const Color c)
 {
-    Peddles peddles = {coordinate, w, h, c, 450, 0.0};
+    const Peddles peddles = {coordinate, w, h, c, 450, 0.0f};
     return peddles;
 }
 

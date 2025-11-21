@@ -22,7 +22,7 @@
 void UpdateDrawFrame(void);
 void RenderMainMenu(void);
 
-int main()
+int main(void)
 {
 	if (acquire_lock() == -1)
 	{
@@ -66,34 +66,34 @@ void UpdateDrawFrame(void)
 
 	switch (menu)
 	{
-	case MAINMENU:
-		RenderMainMenu();
-		break;
+		case MAINMENU:
+			RenderMainMenu();
+			break;
 
-	case SINGLEPLAYERMODE:
-		if (initSinglePlayerLevel) InitSinglePlayerLevel();
-		RenderSinglePlayerLevel();
-		break;
+		case SINGLEPLAYERMODE:
+			if (initSinglePlayerLevel) InitSinglePlayerLevel();
+			RenderSinglePlayerLevel();
+			break;
 
-	case MULTIPLAYERMODE:
-		if (initMultiPlayerLevel) InitMultiPlayerLevel();
-		RenderMultiPlayerLevel();
-		break;
+		case MULTIPLAYERMODE:
+			if (initMultiPlayerLevel) InitMultiPlayerLevel();
+			RenderMultiPlayerLevel();
+			break;
 
-	case OPTIONS:
-		if (initOptions) InitOptions();
-		RenderOptions();
-		break;
+		case OPTIONS:
+			if (initOptions) InitOptions();
+			RenderOptions();
+			break;
 
-	case ABOUTSECTION:
-		RenderAboutSection();
-		break;
+		case ABOUTSECTION:
+			RenderAboutSection();
+			break;
 
-	case EXIT:
-		exitButtonPressed = true;
-		break;
+		case EXIT:
+			exitButtonPressed = true;
+			break;
 
-	default: break;
+		default: break;
 	}
 
 	EndDrawing();

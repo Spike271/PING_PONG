@@ -2,7 +2,7 @@
 
 <img src="GitVisuals/logo.png" alt="Ping Pong" title="Ping Pong" width="15%">
 
-# Ping Pong Game
+# Pong Game
 
 [![Building](https://github.com/Spike271/PING_PONG/actions/workflows/Build%20for%20all%20platforms.yml/badge.svg)](https://github.com/Spike271/PING_PONG/actions/workflows/Build%20for%20all%20platforms.yml)  [![Deploy on Web](https://github.com/Spike271/PING_PONG/actions/workflows/deploy.yml/badge.svg)](https://github.com/Spike271/PING_PONG/actions/workflows/deploy.yml)
 

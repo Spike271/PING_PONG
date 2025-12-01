@@ -30,7 +30,7 @@ int main(void)
 		return 1;
 	}
 	InitMovingComponents();
-	InitWindow(screenWidth, screenHeight, "Ping pong game");
+	InitWindow(screenWidth, screenHeight, "Pong game");
 	SetExitKey(0);
 	menu = MAINMENU;
 
@@ -107,7 +107,7 @@ void RenderMainMenu()
 	GuiSetFont(customFont);
 	GuiSetStyle(DEFAULT, TEXT_SIZE, 40);
 	GuiSetStyle(DEFAULT, TEXT_COLOR_NORMAL, (int)0xff0000ff);
-	GuiLabel((Rectangle){20, 20, 550, 100}, "PING PONG GAME");
+	GuiLabel((Rectangle){20, 20, 550, 100}, "PONG GAME");
 
 	GuiSetFont(GetFontDefault());
 	GuiSetStyle(DEFAULT, TEXT_SIZE, 30);

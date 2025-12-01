@@ -1,15 +1,16 @@
 <!doctype html>
 
+<html>
 <head>
     <meta charset=utf-8>
-    <title>Ping Pong Game</title>
+    <title>Pong Game</title>
     <link rel="icon" type="image/png" href="logo.png">
     <style>
         body {
-            font-family: arial;
+            font-family: arial,serif;
             margin: 0;
             background-color: #000;
-            padding: none
+            padding: unset;
         }
 
         .emscripten {
@@ -32,9 +33,7 @@
         .spinner {
             height: 30px;
             width: 30px;
-            margin: 0;
-            margin-top: 20px;
-            margin-left: 20px;
+            margin: 20px 0 0 20px;
             display: inline-block;
             vertical-align: top;
             -webkit-animation: rotation .8s linear infinite;
@@ -113,7 +112,29 @@
         <canvas class=emscripten id=canvas oncontextmenu=event.preventDefault() tabindex=-1></canvas>
     </div>
 
-    <script>var statusElement = document.getElementById("status"), progressElement = document.getElementById("progress"), spinnerElement = document.getElementById("spinner"), canvasElement = document.getElementById("canvas"), outputElement = document.getElementById("output"); outputElement && (outputElement.value = ""), canvasElement.addEventListener("webglcontextlost", (e => { alert("WebGL context lost. You will need to reload the page."), e.preventDefault() }), !1); var Module = { print(...e) { if (console.log(...e), outputElement) { var t = e.join(" "); outputElement.value += t + "\n", outputElement.scrollTop = outputElement.scrollHeight } }, canvas: canvasElement, setStatus(e) { if (Module.setStatus.last ??= { time: Date.now(), text: "" }, e !== Module.setStatus.last.text) { var t = e.match(/([^(]+)\((\d+(\.\d+)?)\/(\d+)\)/), n = Date.now(); t && n - Module.setStatus.last.time < 30 || (Module.setStatus.last.time = n, Module.setStatus.last.text = e, t ? (e = t[1], progressElement.value = 100 * parseInt(t[2]), progressElement.max = 100 * parseInt(t[4]), progressElement.hidden = !1, spinnerElement.hidden = !1) : (progressElement.value = null, progressElement.max = null, progressElement.hidden = !0, e || (spinnerElement.style.display = "none")), statusElement.innerHTML = e) } }, totalDependencies: 0, monitorRunDependencies(e) { this.totalDependencies = Math.max(this.totalDependencies, e), Module.setStatus(e ? "Preparing... (" + (this.totalDependencies - e) + "/" + this.totalDependencies + ")" : "All downloads complete.") } }; Module.setStatus("Downloading..."), window.onerror = e => { Module.setStatus("Exception thrown, see JavaScript console"), spinnerElement.style.display = "none", Module.setStatus = e => { e && console.error("[post-exception status] " + e) } }
+    <script>const statusElement = document.getElementById("status"),
+        progressElement = document.getElementById("progress"), spinnerElement = document.getElementById("spinner"),
+        canvasElement = document.getElementById("canvas"),
+        outputElement = document.getElementById("output");
+    outputElement && (outputElement.value = ""), canvasElement.addEventListener("webglcontextlost", (e => { alert("WebGL context lost. You will need to reload the page."), e.preventDefault() }), !1);
+    const Module = {
+        print(...e) {
+            if (console.log(...e), outputElement) {
+                const t = e.join(" ");
+                outputElement.value += t + "\n";
+                outputElement.scrollTop = outputElement.scrollHeight
+            }
+        }, canvas: canvasElement, setStatus(e) {
+            if (Module.setStatus.last ??= {time: Date.now(), text: ""}, e !== Module.setStatus.last.text) {
+                const t = e.match(/([^(]+)\((\d+(\.\d+)?)\/(\d+)\)/),
+                    n = Date.now();
+                t && n - Module.setStatus.last.time < 30 || (Module.setStatus.last.time = n, Module.setStatus.last.text = e, t ? (e = t[1], progressElement.value = 100 * parseInt(t[2]), progressElement.max = 100 * parseInt(t[4]), progressElement.hidden = !1, spinnerElement.hidden = !1) : (progressElement.value = null, progressElement.max = null, progressElement.hidden = !0 , e || (spinnerElement.style.display = "none")), statusElement.innerHTML = e)
+            }
+        }, totalDependencies: 0, monitorRunDependencies(e) {
+            this.totalDependencies = Math.max(this.totalDependencies, e), Module.setStatus(e ? "Preparing... (" + (this.totalDependencies - e) + "/" + this.totalDependencies + ")" : "All downloads complete.")
+        }
+    };
+    Module.setStatus("Downloading..."), window.onerror = e => { Module.setStatus("Exception thrown, see JavaScript console"), spinnerElement.style.display = "none", Module.setStatus = e => { e && console.error("[post-exception status] " + e) } }
     </script>
     <script async src=PING_PONG.js></script>
 </body>

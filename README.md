@@ -4,7 +4,7 @@
 
 # Pong Game
 
-[![Building](https://github.com/Spike271/PING_PONG/actions/workflows/Build%20for%20all%20platforms.yml/badge.svg)](https://github.com/Spike271/PING_PONG/actions/workflows/Build%20for%20all%20platforms.yml)  [![Deploy on Web](https://github.com/Spike271/PING_PONG/actions/workflows/deploy.yml/badge.svg)](https://github.com/Spike271/PING_PONG/actions/workflows/deploy.yml)
+[![Building](https://github.com/Spike271/PING_PONG/actions/workflows/Build%20for%20all%20platforms.yml/badge.svg)](https://github.com/Spike271/PING_PONG/actions/workflows/Build%20for%20all%20platforms.yml) [![Deploy on Web](https://github.com/Spike271/PING_PONG/actions/workflows/deploy.yml/badge.svg)](https://github.com/Spike271/PING_PONG/actions/workflows/deploy.yml)
 
 </div>
 
@@ -23,11 +23,11 @@ score needed to win the game.
 ## Features
 
 - **Single-Player Mode**: Play against an AI opponent.
-	- Control the left paddle using `W` and `S` keys.
-	- The first to reach the predefined score wins.
+  - Control the left paddle using `W` and `S` keys.
+  - The first to reach the predefined score wins.
 - **Multiplayer Mode**: Play locally with a friend.
-	- Left player controls the left paddle (`W`/`S` keys).
-	- Right player controls the right paddle (`Up`/`Down` arrow keys).
+  - Left player controls the left paddle (`W`/`S` keys).
+  - Right player controls the right paddle (`Up`/`Down` arrow keys).
 - **Options Section**: You can customize the winning score by going into this section.
 - **About Section**: Learn more about the game through the in-game "About" section.
 
@@ -41,15 +41,15 @@ score needed to win the game.
 
 1. Launch the game.
 2. Use the menu to select the desired mode:
-	- Single Player
-	- Multiplayer
-	- Options
-	- About
-	- Exit
+   - Single Player
+   - Multiplayer
+   - Options
+   - About
+   - Exit
 3. Gameplay:
-	- Single Player: Use `W` and `S` keys to control your paddle while competing against the AI.
-	- Multiplayer: Both players manage their paddles to try and score 3 points to win (or the customized value set in
-	  `score.txt`).
+   - Single Player: Use `W` and `S` keys to control your paddle while competing against the AI.
+   - Multiplayer: Both players manage their paddles to try and score 3 points to win (or the customized value set in
+     `score.txt`).
 4. Exit sections or return to the main menu using the `ESC` key.
 
 ## Prerequisites
@@ -59,14 +59,16 @@ Before building or running this project, ensure you have the following dependenc
 - C98 compatible compiler
 
 ### For Desktop
+
 - [CMake](https://cmake.org/documentation/) (3.30 or higher)
 - [Ninja](https://ninja-build.org/) (if you're not building for Visual Studio)
 
 ##### For Linux
 
-> Info: Make sure to check out the [raylib wiki](https://github.com/raysan5/raylib/wiki/Working-on-GNU-Linux) to make sure you have all necessary dependencies installed on your machine. 
+> Info: Make sure to check out the [raylib wiki](https://github.com/raysan5/raylib/wiki/Working-on-GNU-Linux) to make sure you have all necessary dependencies installed on your machine.
 
 ## For Web
+
 - [Emscripten](https://emscripten.org/docs/getting_started/downloads.html)
 - [CMake](https://cmake.org/documentation/) (3.30 or higher)
 
@@ -77,13 +79,21 @@ Before building or running this project, ensure you have the following dependenc
 Start by cloning the project from the GitHub repository:
 
 ```bash
-# Clone the Repository
-git clone https://github.com/Spike271/Ping_Pong.git
+    # Clone the Repository
+    git clone https://github.com/Spike271/Ping_Pong.git
+```
+
+Navigate to the folder
+
+```bash
+  # default name
+  cd Ping_Pong
 ```
 
 ### For Windows (Visual Studio)
 
 1. Generate build files:
+
    ```bash
    cmake -B build
    ```
@@ -96,12 +106,14 @@ git clone https://github.com/Spike271/Ping_Pong.git
 ### For Other Platforms (Also works for Windows)
 
 1. Create and navigate to the build directory:
+
    ```bash
    mkdir build
    cd build
    ```
 
 2. Generate the build system files using Ninja:
+
    ```bash
    cmake -G "Ninja" -D CMAKE_C_COMPILER=gcc -D CMAKE_BUILD_TYPE=Release ..
    ```
@@ -117,28 +129,32 @@ git clone https://github.com/Spike271/Ping_Pong.git
    your environment.
 
 2. Create and navigate to the build-web directory:
+
    ```bash
    mkdir build-web
    cd build-web
    ```
 
 3. Generate the build files using Emscripten:
+
    ```bash
    emcmake cmake .. -DPLATFORM=Web -DCMAKE_BUILD_TYPE=Release
    ```
 
 4. Build the project:
+
    ```bash
    emmake make
    ```
 
 5. The build will generate the following files:
-	- `PING_PONG.html` - The HTML page to load the game
-	- `PING_PONG.js` - JavaScript code
-	- `PING_PONG.wasm` - WebAssembly binary
-	- `PING_PONG.data` - Game resources
+   - `PING_PONG.html` - The HTML page to load the game
+   - `PING_PONG.js` - JavaScript code
+   - `PING_PONG.wasm` - WebAssembly binary
+   - `PING_PONG.data` - Game resources
 
 6. To run the game, you'll need to serve these files using a local web server:
+
    ```bash
    # Using Python 3
    python3 -m http.server 8080

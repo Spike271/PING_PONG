@@ -71,6 +71,12 @@ endif ()
 set(SOURCE_DIR "${CMAKE_SOURCE_DIR}/res")
 set(DEST_DIR "${CMAKE_BINARY_DIR}")
 file(COPY ${SOURCE_DIR} DESTINATION ${DEST_DIR})
+add_custom_target(CopyResources ALL
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${SOURCE_DIR}
+        "${CMAKE_BINARY_DIR}/$<CONFIG>/res"
+    COMMENT "Copying resources to $<CONFIG>/res"
+)
 
 if (${PLATFORM} STREQUAL "Web")
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Os -Wall -s USE_GLFW=3 -s ASSERTIONS=1 -s WASM=1 -s GL_ENABLE_GET_PROC_ADDRESS=1 -s FORCE_FILESYSTEM=1 -s INITIAL_MEMORY=314572800 -s TOTAL_MEMORY=536870912 --preload-file ./res/")

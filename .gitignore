@@ -1,3 +1,4 @@
 /build-web/
 /cmake-build-release/
 /.clang-format
+/build/

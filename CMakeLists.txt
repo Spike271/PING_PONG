@@ -51,7 +51,7 @@ if (WIN32)
     set(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -static-libstdc++")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static")
 
-    # target_sources(${PROJECT_NAME} PRIVATE res/app.rc) # Doesn't work with windres but works well with ninja
+    target_sources(${PROJECT_NAME} PRIVATE res/app.rc) # Doesn't work with windres but works well with ninja
 elseif(APPLE)
     set_property(TARGET ${PROJECT_NAME} APPEND PROPERTY MACOSX_BUNDLE TRUE)
 elseif (UNIX AND NOT APPLE)

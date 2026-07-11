@@ -31,22 +31,36 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(raygui)
 
 # Our Project
-add_executable(${PROJECT_NAME} src/main.c
+add_executable(${PROJECT_NAME}
+        src/main.c
+        src/ball.c
+        src/paddle.c
+        src/draw.c
+        src/global.c
+        src/single_player_level.c
+        src/multi_player_level.c
+        src/options.c
+        src/about_section.c
+        src/exit_menu.c
+        src/lock.c
+        headers/Config.h
+        headers/Types.h
         headers/Ball.h
+        headers/Paddle.h
         headers/Draw.h
         headers/Global.h
-        headers/Rectangle.h
         headers/AboutSection.h
         headers/SinglePlayerLevel.h
         headers/MultiPlayerLevel.h
         headers/Options.h
         headers/lock.h
+        headers/ExitMenu.h
 )
 set(raylib_VERBOSE 1)
 
 if (WIN32)
     set_property(TARGET ${PROJECT_NAME} APPEND PROPERTY WIN32_EXECUTABLE TRUE)
-    
+
     set(CMAKE_EXE_LINKER_FLAGS "-static")
     set(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -static-libstdc++")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static")
@@ -60,6 +74,7 @@ endif ()
 
 target_include_directories(${PROJECT_NAME} PRIVATE
         ${raygui_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/headers
 )
 target_link_libraries(${PROJECT_NAME} PRIVATE raylib)
 

@@ -1,6 +1,7 @@
 #include "Options.h"
 #include "Global.h"
 #include <raygui.h>
+#include "Config.h"
 
 static bool saveButton = false;
 static bool optionWindow = false;

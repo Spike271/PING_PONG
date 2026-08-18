@@ -5,6 +5,7 @@
 #include <raylib.h>
 #include <raygui.h>
 #include <time.h>
+#include "Config.h"
 
 void InitMovingComponents(void)
 {

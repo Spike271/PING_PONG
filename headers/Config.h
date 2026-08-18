@@ -10,7 +10,7 @@
 #define DEFAULT_SCORE 3
 
 #define FONT_PATH  "./res/Roboto-Medium.ttf"
-#define BG_PATH    "./res/bg.jpg"
+#define BG_PATH    "./res/bg.png"
 #define LOGO_PATH  "./res/logo.png"
 #define STYLE_PATH "./res/style_dark.rgs"
 #define SCORE_PATH "./score.txt"

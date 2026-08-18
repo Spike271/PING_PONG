@@ -1,6 +1,7 @@
 #include "ExitMenu.h"
 #include "Global.h"
 #include <raylib.h>
+#include "Config.h"
 
 static Rectangle yesBtn = { SCREEN_WIDTH / 2 - 150, SCREEN_HEIGHT / 2, 120, 50 };
 static Rectangle noBtn  = { SCREEN_WIDTH / 2 + 30, SCREEN_HEIGHT / 2, 120, 50 };

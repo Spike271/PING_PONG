@@ -7,6 +7,7 @@
 #include "Options.h"
 #include "ExitMenu.h"
 #include "SinglePlayerLevel.h"
+#include "Config.h"
 #include "MultiPlayerLevel.h"
 
 #if defined(PLATFORM_WEB)
